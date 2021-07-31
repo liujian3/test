@@ -42,7 +42,7 @@ group=5
 partnersg=[','.join(partners[x:x+group]) for x in range(0,len(partners),group)]
 reportersg=[','.join(reporters[x:x+group]) for x in range(0,len(reporters),group)]
 # yms=[str(x) for x in range(2020,1961,-1)]
-yms=sorted(pd.date_range('19870101','20210101',freq='A').astype('str').map(lambda x:x[:4]).tolist())
+yms=sorted(pd.date_range('19990101','20210101',freq='A').astype('str').map(lambda x:x[:4]).tolist())
 ymsg=[','.join(yms[x:x+group]) for x in  range(0,len(yms),group)]
 
 def getdata(p,r,ym,freq):
@@ -126,8 +126,8 @@ for ym in ymsg:
             if x==1:
                 cnt+=1
             elif x==2:
-                cnt=90
-            if cnt>=90:
+            #    cnt=90
+            #if cnt>=90:
                 cnt=0
                 time.sleep(60*60*0.5)
             print(cnt)
