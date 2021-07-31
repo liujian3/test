@@ -15,7 +15,7 @@ Created on Fri Jul 30 16:13:31 2021
 import requests
 import json
 import time
-import pandas as pd
+#import pandas as pd
 import os
 if not os.path.exists('/root/uncomtrade'):
     os.mkdir('/root/uncomtrade')
@@ -41,8 +41,8 @@ print('reporters '+str(len(reporters)))
 group=5
 partnersg=[','.join(partners[x:x+group]) for x in range(0,len(partners),group)]
 reportersg=[','.join(reporters[x:x+group]) for x in range(0,len(reporters),group)]
-# yms=[str(x) for x in range(2020,1961,-1)]
-yms=sorted(pd.date_range('19990101','20210101',freq='A').astype('str').map(lambda x:x[:4]).tolist())
+yms=['1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009']
+#yms=sorted(pd.date_range('19990101','20210101',freq='A').astype('str').map(lambda x:x[:4]).tolist())
 ymsg=[','.join(yms[x:x+group]) for x in  range(0,len(yms),group)]
 
 def getdata(p,r,ym,freq):
