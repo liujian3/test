@@ -17,7 +17,7 @@ import json
 import time
 import pandas as pd
 import os
-if os.path.exists('/root/uncomtrade'):
+if not os.path.exists('/root/uncomtrade'):
     os.mkdir('/root/uncomtrade')
 
 #获得partners
