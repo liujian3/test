@@ -111,7 +111,7 @@ import datetime
 
 freq='A'
 cnt=0
-for ym in ymsg:    
+for ym in yms:    
     gs=[]
     
     for p in partnersg:
