@@ -17,8 +17,8 @@ import json
 import time
 #import pandas as pd
 import os
-if not os.path.exists('/root/uncomtrade'):
-    os.mkdir('/root/uncomtrade')
+if not os.path.exists(rpth+'uncomtrade'):
+    os.mkdir(rpth+'uncomtrade')
 
 #获得partners
 url='https://comtrade.un.org/Data/cache/partnerAreas.json'
