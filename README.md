@@ -13,4 +13,4 @@ git clone https://github.com/liujian3/test.git
 cd test
 
 
-pip install requests pandas
+pip install requests
