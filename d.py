@@ -11,7 +11,7 @@ Created on Fri Jul 30 16:13:31 2021
 
 @author: liujian
 """
-
+rpth='/root/'
 import requests
 import json
 import time
@@ -46,7 +46,7 @@ yms=['1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009
 ymsg=[','.join(yms[x:x+group]) for x in  range(0,len(yms),group)]
 
 def getdata(p,r,ym,freq):
-    fpth='/root/uncomtrade/'+freq+p.replace(',','-')+'_'+r.replace(',','-')+'_'+ym.replace(',','-')+'.json'
+    fpth=rpth+'uncomtrade/'+freq+p.replace(',','-')+'_'+r.replace(',','-')+'_'+ym.replace(',','-')+'.json'
     if os.path.exists(fpth) or os.path.exists(fpth.replace('uncomtrade','uncomtrade/'+ym)):
         return 0
     parmas={'p':p,'r':r,'max':10000,'freq':freq,'ps':ym,'px':'BEC'}
@@ -84,7 +84,7 @@ def getdata(p,r,ym,freq):
                 json.dump(data,f)
             break
         except Exception as ex:
-            with open('/root/error.log','a') as f:
+            with open(rpth+'error.log','a') as f:
                 f.write(str(ex))
                 f.write(url+'\n')
                 if temp:
@@ -95,7 +95,7 @@ def getdata(p,r,ym,freq):
             print(url+' 5 secs retry'+str(c))
             time.sleep(5)
     if c>=5:
-        with open('/root/error2.log','a') as f:
+        with open(rpth+'error2.log','a') as f:
             f.write(url+'\n')
             if temp:
                 f.write(str(temp['validation']['count']['value']))
